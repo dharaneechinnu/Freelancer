@@ -1,0 +1,40 @@
+.content {
+    display: flex;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    
+  }
+  .content a{
+    text-decoration: none;
+    color: white;
+  }
+  .content h1{
+    color: rgb(27, 61, 214);
+  }
+  .content h2{
+    color: white;
+  }
+  .content button{
+    margin: 5px;
+  }
+  .content .job{
+    background-color: rgb(15, 14, 14);
+    border: none;
+    color: white;
+    padding: 5px;
+  }
+  .content .hiring{
+    background-color: rgb(27, 61, 214);
+    padding: 5px;
+    width: 100px;
+    border: none;
+  }
+  .con{
+    position: absolute;
+    left: 20%;
+    top: 30%;
+    
+  }
+  img{
+    width: 100%;
+  }
