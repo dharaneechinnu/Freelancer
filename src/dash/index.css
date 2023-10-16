@@ -4,6 +4,12 @@
     font-weight: 700;
     
   }
+  .logo{
+    width: 100vw;
+    height: 100vh;
+
+    background-size: cover;
+  }
   .content a{
     text-decoration: none;
     color: white;

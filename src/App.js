@@ -1,9 +1,9 @@
 import About from "./About";
 import NewPost from "./NewPost";
 import Home from "./Home";
-import {format, set} from "date-fns"
+import {format} from "date-fns"
 import { useEffect, useState } from "react";
-import { Route, Router, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import PostPage from "./PostPage";
 import api from "./api/Posts";
 import EditPost from "./EditPost";
@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import Main from "./dash/Main";
 import Hm from "./Hm";
 import Freeabout from "./Freeabout";
+
 
 
 
@@ -108,7 +109,7 @@ const handlesumbit = async (e) => {
         title="Social Media"
         /> */}
       
-       
+     
        
          <Routes><Route path="/" element={<Login/>}></Route></Routes>
          <Routes><Route path="/dashboard" element={<Main/>}></Route></Routes>
@@ -134,7 +135,7 @@ const handlesumbit = async (e) => {
     />
   }
 />
- <Route path=":id" element={<PostPage posts={posts}  handledelete={handledelete}/>}/>
+ <Route path=":id" element={<PostPage posts={posts}  handledelete={handledelete} search={search} setsearch={setsearch}/>}/>
               </Route>
               <Route path="/edit/:id" element={<EditPost
               posts={posts}
@@ -145,6 +146,8 @@ const handlesumbit = async (e) => {
               editmail={editmail}
               seteditmail={seteditmail}
               setEditTitle={setEditTitle}
+              search={search}
+              setsearch={setsearch}
               />}/>
               <Route path="/about" element={<About search={search} setsearch={setsearch}/>}/>
             

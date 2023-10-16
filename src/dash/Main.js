@@ -6,7 +6,7 @@ const Main = () => {
   return (
     <>
     <div className="content">
-      <img src={logo1} alt="" />
+      <img src={logo1} alt="" className='logo'/>
       <div className="con">
      <h1 className='slo'>Hi there </h1><br></br>
      <h2 className='slo2'>Here The Option</h2><br></br>

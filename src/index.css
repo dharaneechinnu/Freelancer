@@ -40,25 +40,13 @@ body {
   box-shadow: 0px 0px 15px gray;
 
 }
-.Navs {
-  width: 100%;
-  height: auto;
-  background-color: rgb(26, 47, 203);
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-.Navs ul li {
-  text-decoration: none;
-  justify-content: center;
-  align-items: center;
-}
 
-.Nav {
+
+.Nav,.Navs {
   width: 100%;
   background-color: black;
   display: flex;
+  flex-wrap: nowrap;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -84,38 +72,25 @@ body {
   left: -99999px;
 }
 
-.Navs ul{
+.Navs{
+  background-color: blue;
+}
+.Nav ul ,.Navs ul{
   color: #fff;
   list-style-type: none;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: center;
 }
-.Nav ul {
-  color: #fff;
-  list-style-type: none;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-}
-.Navs li{
-  padding: 1rem;
-}
-.Nav li {
+.Nav li,.Navs li {
   padding: 1rem;
 }
 
-.Nav li:hover, 
-.Nav li:focus {
+.Nav li,.Navs li:hover,
+.Nav li,.Navs li:focus {
   padding: 1rem;
 }
-.Navs li a{
-  color: #fff;
-
-  text-decoration: none;
-}
-.Nav li a {
+.Nav li a,.Navs li a {
   color: #fff;
   text-decoration: none;
   transition: 0.2s;
@@ -268,13 +243,18 @@ body {
   .Header h1 {
     font-size: 2rem;
   }
-  .Nav {
+  .Nav ,.Navs{
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
   }
-
+   .Navs{
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+   }
   .Nav ul {
     text-align: right;
   }

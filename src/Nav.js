@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Nav = ({search, setsearch}) => {
   return (
+    <>
     <nav className='Nav'>
     <h2 className='titlelogo'><Link to="/dashboard">Freelancer</Link></h2>
       <form className='searchForm' onSubmit={(e) => e.preventDefault()}>
@@ -21,6 +22,8 @@ const Nav = ({search, setsearch}) => {
         <li><Link to="/about">About</Link> </li>
       </ul>
    </nav>
+   
+   </>
   )
 }
 

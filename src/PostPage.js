@@ -1,10 +1,12 @@
 import React from 'react'
+import Nav from './Nav';
 import { Link, useParams } from 'react-router-dom'
-const PostPage = ({posts,handledelete}) => {
+const PostPage = ({posts,handledelete,search,setsearch}) => {
   const {id} = useParams();
   const post = posts.find(post => (post.id).toString()===id);
   return (
     <main className='PostPage '>
+       <Nav search={search} setsearch={setsearch}/>
     <article className='post'>
       {post &&
        <>

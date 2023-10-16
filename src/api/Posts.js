@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export default axios.create({
-    baseURL: " http://localhost:1200"
+    baseURL: "https://jobportal-api-f2m2.onrender.com"
 })

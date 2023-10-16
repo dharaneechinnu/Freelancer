@@ -1,7 +1,8 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useEffect } from 'react'
-const EditPost = ({posts,handleEdit,editBody,setEditBody,editTitle,setEditTitle,editmail,seteditmail}) => {
+import Nav from './Nav';
+const EditPost = ({posts,search,setsearch,handleEdit,editBody,setEditBody,editTitle,setEditTitle,editmail,seteditmail}) => {
          const {id} =useParams();
          const post = posts.find(post => (post.id).toString()=== id);
          useEffect(()=> {
@@ -12,6 +13,7 @@ const EditPost = ({posts,handleEdit,editBody,setEditBody,editTitle,setEditTitle,
          },[post,setEditBody,setEditTitle])
     return (
         <main className="NewPost">
+              <Nav search={search} setsearch={setsearch}/>
         {editTitle &&
             <>
                 <h2>Edit Post</h2>
