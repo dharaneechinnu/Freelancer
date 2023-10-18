@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: none;
 }
 
 html {
@@ -30,28 +31,49 @@ body {
   background-color: #efefef;
 }
 .App {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  border: 1px solid #333;
-  box-shadow: 0px 0px 15px gray;
-
+ display: flex;
+ justify-content: center;
+}
+.searchForm{
+  position: relative;
+  left: 30%;
+  top: 80%;
 }
 
+.search-box{
+  width: 100%;
+  position: absolute;
+  box-shadow: rgb(255, 255, 255);
+  top: 50%;
+ 
+  height: 100%;
+  width: 100%;
+  
+}
+input#search {
+  border-bottom: 2px solid #ffffff;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+}
 
 .Nav,.Navs {
   width: 100%;
-  background-color: black;
+  background-color: #333;
   display: flex;
-  flex-wrap: nowrap;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-}
+  position: absolute;
+  top: 0;
+  left: 0;
 
+}
+.Nav{
+  background-color: black;
+}
 .searchForm {
   width: 80%;
   padding: 1rem 0 0 0.75rem;
@@ -67,10 +89,7 @@ body {
   outline: none;
 }
 
-.searchForm label {
-  position: absolute;
-  left: -99999px;
-}
+
 
 .Navs{
   background-color: blue;
@@ -85,7 +104,33 @@ body {
 .Nav li,.Navs li {
   padding: 1rem;
 }
-
+header{
+  width: 100vw;
+  height: 60vh;
+  background-image: url('./IMG react/logo3.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.header{
+  width: 100vw;
+  height: 60vh;
+  background-image: url('./IMG react/logo.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.header-title{
+  position: absolute;
+  top: 7rem;
+  left: 3rem;
+  letter-spacing: 3;
+  font-weight: bolder;
+  font-size: 50px;
+  color: white;
+  text-shadow: 4px 2px 0px rgba(0, 0, 0, 0.2);
+}
+.header-title>span{
+  color: blue;
+}
 .Nav li,.Navs li:hover,
 .Nav li,.Navs li:focus {
   padding: 1rem;
@@ -104,12 +149,16 @@ body {
 .Home, .NewPost, .PostPage, .About, .Missing {
   width: 100%;
   flex-grow: 1;
-  padding: 1rem;
   background-color: #fff;
 }
-
+.NewPost{
+  padding: 1rem;
+}
+.About{
+  margin-top: 5rem;
+}
 .post {
-  margin-top: 1rem;
+  margin-top: 2rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transition: 0.5s;
   padding: 10px;
@@ -129,11 +178,12 @@ body {
 }
 
 .post:first-child {
-  margin-top: 0;
+  margin-top: 2rem;
 }
 
 .post:last-child {
-  border-bottom: none;
+  
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .postDate {
@@ -147,6 +197,7 @@ body {
 
 .newPostForm {
   display: flex;
+  margin-top: 2rem;
   flex-direction: column;
 }
 
@@ -183,7 +234,10 @@ body {
 .Missing p, .PostPage p, .NewPost p {
   margin-top: 1rem;
 }
-
+.postss{
+  margin-top: 6rem;
+  padding: 1rem;
+}
 .PostPage button {
   height: 30px;
   min-width: 10px;
@@ -279,6 +333,7 @@ body {
   .newPostForm textarea {
     height: 300px;
   }
+  
 }
 
 @media only screen and (min-width: 992px) {
@@ -292,5 +347,19 @@ body {
   
   .title-card a {
     text-decoration: none;
+  }
+  
+
+}
+@media (max-width: 767px) {
+  .search-box{
+    width: 100%;
+    position: absolute;
+    box-shadow: rgb(255, 255, 255);
+    top: 50%;
+    right: 30%;
+    height: 100%;
+    width: 100%;
+    
   }
 }

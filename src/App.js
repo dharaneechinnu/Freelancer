@@ -3,6 +3,8 @@ import NewPost from "./NewPost";
 import Home from "./Home";
 import {format} from "date-fns"
 import { useEffect, useState } from "react";
+
+import { ToastContainer } from 'react-toastify';
 import { Route, Routes, useNavigate } from "react-router-dom";
 import PostPage from "./PostPage";
 import api from "./api/Posts";
@@ -11,13 +13,14 @@ import Login from "./pages/Login";
 import Main from "./dash/Main";
 import Hm from "./Hm";
 import Freeabout from "./Freeabout";
+import Register from "./pages/Register";
 
 
 
 
 function App() {
   const [posts,setposts] = useState([])
-
+  const [post2,setPost2]= useState([])
   const [search,setsearch] =useState('')
   const [searchresults,setsearchresult]= useState([])
   const [postTitle,setPostTitle] = useState('');
@@ -46,6 +49,13 @@ function App() {
     }
     fetchPosts();
   },[])
+  useEffect(() => {
+    // Load data from local storage on component mount
+    const savedData = JSON.parse(localStorage.getItem('myData'));
+    if (savedData) {
+      setPost2(savedData);
+    }
+  }, []);
 useEffect(() =>{
   const filteredResults = posts.filter((post) =>((post.body).toLowerCase()).includes(search.toLowerCase())|| ((post.title).toLowerCase()).includes(search.toLowerCase()));
   setsearchresult(filteredResults.reverse());
@@ -62,6 +72,9 @@ const handlesumbit = async (e) => {
     datetime,
     body: postBody
   };
+  const update = [...post2,newPost]
+  localStorage.setItem('myData', JSON.stringify(update));
+  setPost2(update)
   try {
     const response = await api.post('/posts', newPost);
     const allposts = [...posts, response.data];
@@ -75,11 +88,16 @@ const handlesumbit = async (e) => {
   }
 };
 
+
     const handledelete = async(id) =>{
       try{
         await api.delete(`/posts/${id}`)
       const postsList = posts.filter(post => post.id !==id);
+      const postsList2 = post2.filter(post => post.id !==id);
+      
+  localStorage.setItem('myData', JSON.stringify(postsList2));
       setposts(postsList);
+      setPost2(postsList2)
       navigate('/home')
       }
       catch (err){
@@ -91,7 +109,8 @@ const handlesumbit = async (e) => {
       const updatapost = {id,title: editTitle,email: editmail,datetime,body:editBody};
       try{
         const reponse = await api.put(`/posts/${id}`,updatapost)
-        setposts(posts.map(post => post.id===id ? {...reponse.data}:post));
+        setposts(post2.map(post => post.id===id ? {...reponse.data}:post));
+        localStorage.setItem('myData', JSON.stringify(post2.map(post => post.id===id ? {...reponse.data}:post)));
       setEditTitle('');
       seteditmail('');
       setEditBody('');
@@ -102,6 +121,8 @@ const handlesumbit = async (e) => {
         console.log(err.message);
       }
     }
+
+    
   return ( 
     
     <div className="App">
@@ -110,14 +131,16 @@ const handlesumbit = async (e) => {
         /> */}
       
      
+      <ToastContainer theme='colored' position='top-center'></ToastContainer>
        
          <Routes><Route path="/" element={<Login/>}></Route></Routes>
+         <Routes> <Route path='/register' element={<Register/>}></Route></Routes>
          <Routes><Route path="/dashboard" element={<Main/>}></Route></Routes>
-       <Routes><Route path="/dd" element={<Hm posts={searchresults} search={search} setsearch={setsearch}/>}></Route></Routes>
+       <Routes><Route path="/dd" element={<Hm posts={searchresults} search={search} setsearch={setsearch} />}></Route></Routes>
        <Routes><Route path="/Freeabout" element={<Freeabout search={search} setsearch={setsearch}/>}></Route></Routes>
           <Routes>
            <Route  path="/home"  element={<Home
-              posts={searchresults}
+              post2={post2}
               search={search}
               setsearch={setsearch}
               />}/>

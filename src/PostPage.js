@@ -7,7 +7,7 @@ const PostPage = ({posts,handledelete,search,setsearch}) => {
   return (
     <main className='PostPage '>
        <Nav search={search} setsearch={setsearch}/>
-    <article className='post'>
+    <article className='postss'>
       {post &&
        <>
        <h2>{post.title}</h2>
