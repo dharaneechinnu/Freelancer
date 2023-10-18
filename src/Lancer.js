@@ -1,8 +1,5 @@
-
-
 import React from 'react'
 import { Link } from 'react-router-dom'
-import logo2 from './IMG react/logo3.jpg'
 const Lancer = ({search,setsearch}) => {
   return (
     

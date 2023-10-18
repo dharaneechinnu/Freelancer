@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import logo1 from './IMG react/logo3.jpg'
 const Nav = ({search, setsearch}) => {
   return (
     <>
