@@ -9,6 +9,7 @@ const Lancer = ({search,setsearch}) => {
       <ul className='navbar-menu'>
         <li><Link to="/dd">Home</Link> </li>
         <li><Link to="/Freeabout">About</Link> </li>
+        <li><Link to="/">Logout</Link> </li>
       </ul>
    </nav>
 

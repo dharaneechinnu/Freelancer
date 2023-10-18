@@ -47,9 +47,7 @@ body {
   position: absolute;
   box-shadow: rgb(255, 255, 255);
   top: 50%;
- 
-  height: 100%;
-  width: 100%;
+
   
 }
 input#search {
@@ -69,7 +67,12 @@ input#search {
   position: absolute;
   top: 0;
   left: 0;
-
+}
+.Navs{
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 .Nav{
   background-color: black;
@@ -89,7 +92,9 @@ input#search {
   outline: none;
 }
 
-
+.statusMsg {
+  margin-top: 10rem;
+}
 
 .Navs{
   background-color: blue;
@@ -361,5 +366,8 @@ header{
     height: 100%;
     width: 100%;
     
+  }
+  .NewPost{
+    margin-top: 2rem;
   }
 }

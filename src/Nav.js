@@ -9,6 +9,7 @@ const Nav = ({search, setsearch}) => {
         <li><Link to="/home">Home</Link> </li>
         <li><Link to="/post">Upload</Link> </li>
         <li><Link to="/about">About</Link> </li>
+        <li><Link to="/">Logout</Link> </li>
       </ul>
       {/* <img src={logo1} alt="" srcset="" /> */}
    </nav>
